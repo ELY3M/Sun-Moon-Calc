@@ -24,7 +24,6 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.google.android.gms:play-services-location:16.0.0'
-    implementation 'org.shredzone.commons:commons-suncalc:2.3'
 
 
 }
