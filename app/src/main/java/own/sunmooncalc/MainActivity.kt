@@ -134,7 +134,7 @@ class MainActivity : Activity()  {
         val suntimes: SunTimes = SunTimes.compute()
             .on(now)       // set a date
             .at(mylat, mylon)   // set a location
-            .execute();     // get the results
+            .execute()     // get the results
 
         val astronomical = SunTimes.compute().twilight(SunTimes.Twilight.ASTRONOMICAL).on(date).at(mylat, mylon).execute()
         val nautical = SunTimes.compute().twilight(SunTimes.Twilight.NAUTICAL).on(date).at(mylat, mylon).execute()
@@ -170,11 +170,12 @@ class MainActivity : Activity()  {
 
         val illumination = MoonIllumination.compute().on(date).timezone(TimeZone.getDefault()).execute()
 
-        val phase = illumination.phase
-        val normalized = phase + 180.0
+        val moonphase = illumination.phase
+        val normalized = moonphase + 180.0
         val age = 29.0 * (normalized / 360.0) + 1.0
 
         buildtext += "Moon Phase: "+illumination.phase+"\n"
+        buildtext += "Moon Angle: "+illumination.angle+"\n"
         buildtext += "Moon Fraction: "+illumination.fraction+"\n"
         buildtext += "Moon Age: "+age+"\n"
 
